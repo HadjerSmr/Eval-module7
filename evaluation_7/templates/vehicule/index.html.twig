@@ -1,0 +1,38 @@
+{% extends "bootstrap.html.twig" %}
+{% block body %}
+    <h1> Liste de tous les véhicules disponibles</h1>
+
+    <a href="{{ path("new_vehicule") }}" class="btn btn-warning my-3"> Ajouter un nouveau véhicule</a>
+
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>#id</th>
+                <th>nom</th>
+                <th>modele</th>
+                <th>description</th>
+                <th>date_creation</th>
+                <th>en_vente</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, value in vehicules %}
+                <tr>
+                    <td>{{ value.id }}</td>
+                    <td>{{ value.nom }}</td>
+                    <td>{{value.modele}}</td>
+                    <td>{{ value.description }}</td>
+                    <td>{{value.dateCreation|date('d-m-Y')}}</td>
+                    <td><img src="{{value.image}}" style=" height:100px; width:12rem"></td>
+                    <td>  {{ value.EnVente }}<td>
+                    <td>
+                        <a href="{{path("update_vehicule" , { id : value.id}) }}" class="btn btn-secondary">modifier</a>
+                        <a href="{{path("delete_vehicule" , { id : value.id}) }}" class="btn btn-danger ms-3">supprimer</a>
+
+                    </td>
+                </tr>
+                
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

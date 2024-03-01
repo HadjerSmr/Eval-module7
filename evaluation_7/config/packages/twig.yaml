@@ -1,0 +1,12 @@
+twig:
+    file_name_pattern: '*.twig'
+
+when@test:
+    twig:
+        strict_variables: true
+
+
+# config/packages/twig.yaml
+
+framework:
+    error_controller: App\Controller\ErrorController::show404

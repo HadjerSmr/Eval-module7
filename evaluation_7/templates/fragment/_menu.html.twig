@@ -1,0 +1,55 @@
+<header class="bg-dark">
+    <nav class="navbar navbar-expand container navbar-dark">
+        <a class="navbar-brand text" href="#">
+    <img src="/logo/1.png" width="70" height="50" class="d-inline-block align-top" alt="">
+ 
+  </a>
+        <ul class="navbar-nav" >
+           
+            {% if app.user %}
+            
+            
+
+             <li class="nav-item">
+                <a href="{{ path("home") }}" class="nav-link">Accueil</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{path('index_vehicule')}}" class="nav-link">Gérer les véhicules</a>
+            </li>
+
+           
+
+            {# <li class="nav-item">
+                <a href="{{path('app_register')}}" class="nav-link">S'enregistrer</a>
+            </li>  #}
+            
+             <li class="nav-item">
+                <a href="{{path('index_user')}}" class="nav-link">Gérer les comptes</a>
+            </li> 
+
+              <li class="nav-item">
+                <a href="{{path('app_logout')}}" class="nav-link">Se déconnecter</a>
+            </li> 
+
+            {% else %}
+
+             <li class="nav-item">
+                <a href="{{ path("home") }}" class="nav-link">Accueil</a>
+            </li>
+                
+            <li class="nav-item">
+                <a href="{{path('app_login')}}" class="nav-link">Se Connecter</a>
+            </li>  
+
+           
+            
+            <li>
+            <a href="{{path('mention_legale')}}" class="nav-link">Mention Légale</a>
+            </li>
+
+            {% endif %}
+          
+        </ul>
+    </nav>
+</header>

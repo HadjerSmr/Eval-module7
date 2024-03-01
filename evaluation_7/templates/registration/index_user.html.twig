@@ -1,0 +1,44 @@
+{% extends "bootstrap.html.twig" %}
+
+{% block body %}
+
+<h1 class="text-center mb-5 mt-5">Liste des gestionnaires</h1>
+
+<div class="text-center">
+<a href="{{path("app_register")}}" class="btn btn-outline-primary my-3">Ajouter un nouveau gestionnaire</a>
+</div>
+
+<table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>email</th>
+                <th>password</th>
+                <th>pseudo</th>
+                <th>date</th>
+            </tr>
+        </thead>
+    
+
+<tbody>
+    
+    {% for key, value in users %}
+        <tr>
+            <td>{{value.email}}</td>
+            <td>{{value.password}}</td>
+            <td>{{value.pseudo}}</td>
+            <td>{{value.dateCreation|date('d-m-Y')}}</td>
+           
+            <td>
+                <a href="{{path("update_user", {id: value.id})}}", class="btn btn-outline-secondary">Modifier</a>
+                <a href="{{path("delete_user", {id: value.id})}}", class="btn btn-outline-danger">Supprimer</a> 
+            </td> 
+        </tr>
+    {% endfor %}
+</tbody>
+
+</table>
+{% endblock %}
+
+
+
+
